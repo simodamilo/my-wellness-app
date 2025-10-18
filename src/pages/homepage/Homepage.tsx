@@ -1,3 +1,3 @@
 export const Homepage = () => {
-    return <div>Homepage</div>;
+    return <div className="pt-[48px]">Homepage</div>;
 };
