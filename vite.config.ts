@@ -7,8 +7,8 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig({
     base: "/wellness/",
     plugins: [
-        react(),
         tailwindcss(),
+        react(),
         VitePWA({
             registerType: "autoUpdate",
             workbox: {
