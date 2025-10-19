@@ -4,6 +4,7 @@ import { Login } from "../../pages/login/Login";
 import ProtectedPage from "../auth/ProtectedPage";
 import { Homepage } from "../../pages/homepage/Homepage";
 import { Insights } from "../../pages/insights/Insights";
+import { Settings } from "../../pages/settings/Settings";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ export const router = createBrowserRouter([
                 path: "insights",
                 element: <ProtectedPage />,
                 children: [{ index: true, element: <Insights /> }],
+            },
+            {
+                path: "settings",
+                element: <ProtectedPage />,
+                children: [{ index: true, element: <Settings /> }],
             },
         ],
     },

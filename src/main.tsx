@@ -6,6 +6,8 @@ import AuthProvider, { useAuth } from "./utils/auth/AuthProvider.tsx";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./utils/routing/router.tsx";
+import "@ant-design/v5-patch-for-react-19";
+import "./utils/i18n/i18n.ts";
 
 const MIN_SPLASH_TIME = 1000;
 
