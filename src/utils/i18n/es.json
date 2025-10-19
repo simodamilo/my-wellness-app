@@ -2,17 +2,13 @@
     "COMMON": {
         "INSIGHTS_BUTTON": "Insights"
     },
-    "SETTINGS": {
-        "LANGUAGE": "Language"
-    },
     "INPUTS": {
         "HABITS": {
             "GYM": "Gym",
-            "MEDITATION": "Meditation",
+            "MEDITATION": "Meditación",
             "JOURNALING": "Journaling"
         },
         "MOODS": {
-            "TITLE": "Select your mood",
             "HAPPY": "Happy",
             "CALM": "Calm",
             "NEUTRAL": "Neutral",
