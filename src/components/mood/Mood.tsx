@@ -1,14 +1,19 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { BsEmojiHeartEyes, BsEmojiSmile, BsEmojiNeutral, BsEmojiAstonished, BsEmojiFrown } from "react-icons/bs";
+import type { Input } from "../../store/inputs/types";
 
-export const Mood = () => {
+interface MoodProps {
+    selectedMood?: string;
+    setSelectedMood: (updatedFields: Partial<Input>) => void;
+}
+
+export const Mood = (props: MoodProps) => {
     const { t } = useTranslation();
-    const [selectedMood, setSelectedMood] = useState<string | null>(null);
 
     const singleMood = (value: string, label: string, icon: ReactNode) => {
         return (
-            <div className={`flex flex-col gap-2 items-center py-2 rounded-xl ${selectedMood === value && "bg-[#f087b0]"}`} onClick={() => setSelectedMood(value)}>
+            <div className={`flex flex-col gap-2 items-center py-2 rounded-xl ${props.selectedMood === value && "bg-[#f087b0]"}`} onClick={() => props.setSelectedMood({ mood: value })}>
                 {icon}
                 <p className="text-xs">{label}</p>
             </div>

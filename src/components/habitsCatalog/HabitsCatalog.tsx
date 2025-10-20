@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, type RootState } from "../../store";
 import { habitsActions } from "../../store/habits/habits.action";
-import { Button, Input } from "antd";
+import { Button, Input, Spin } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import type { Habit } from "../../store/habits/types";
 import { MdDeleteOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
+import { habitsSelectors } from "../../store/habits/habits.selector";
 
 export const HabitsCatalog = () => {
     const { t } = useTranslation();
@@ -14,7 +15,8 @@ export const HabitsCatalog = () => {
 
     const [newHabit, setNewHabit] = useState<string>("");
 
-    const habits = useSelector((state: RootState) => state.habits.habits);
+    const habits = useSelector((state: RootState) => habitsSelectors.getHabits(state));
+    const isLoading = useSelector((state: RootState) => habitsSelectors.isLoading(state));
 
     useEffect(() => {
         dispatch(habitsActions.getHabits());
@@ -33,6 +35,14 @@ export const HabitsCatalog = () => {
         }
     };
 
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-around">
+                <Spin />
+            </div>
+        );
+    }
+
     return (
         <div>
             <div className="flex gap-2">
@@ -46,9 +56,9 @@ export const HabitsCatalog = () => {
                     {habits.map((habit: Habit) => {
                         return (
                             <div key={habit.id} className="flex justify-between items-center border-[#f087b0] border-t border-l border-r first:rounded-t-xl last:border-b last:rounded-b-xl">
-                                <p className="py-1 px-4 font-semibold text-sm">{habit.name}</p>
-                                <div className="py-1 px-4">
-                                    <MdDeleteOutline onClick={() => dispatch(habitsActions.deleteHabit(habit.id))} />
+                                <p className="py-2 px-4 font-semibold text-sm">{habit.name}</p>
+                                <div className="py-2 px-4">
+                                    <MdDeleteOutline size={24} onClick={() => dispatch(habitsActions.deleteHabit(habit.id))} />
                                 </div>
                             </div>
                         );

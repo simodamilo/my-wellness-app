@@ -4,7 +4,7 @@
     },
     "SETTINGS": {
         "LANGUAGE": "Language",
-        "HABITS": {
+        "HABITS_CATALOG": {
             "PLACEHOLDER": "Habit name",
             "ADD_BUTTON": "Add Habit"
         }
@@ -12,7 +12,9 @@
     "INPUTS": {
         "HABITS": {
             "TITLE": "Select your habits",
-            "NO_HABITS": "No habits available"
+            "GYM": "Gym",
+            "MEDITATION": "Meditation",
+            "JOURNALING": "Journaling"
         },
         "MOODS": {
             "TITLE": "Select your mood",
