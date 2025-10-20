@@ -3,6 +3,7 @@ import { CardContainer } from "../../components/cardContainer/CardContainer";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../utils/i18n/i18n";
+import { HabitsCatalog } from "../../components/habitsCatalog/HabitsCatalog";
 
 export const Settings = () => {
     const { t } = useTranslation();
@@ -24,6 +25,10 @@ export const Settings = () => {
                         <Radio.Button value="es">ES</Radio.Button>
                     </Radio.Group>
                 </div>
+            </CardContainer>
+
+            <CardContainer>
+                <HabitsCatalog />
             </CardContainer>
         </div>
     );

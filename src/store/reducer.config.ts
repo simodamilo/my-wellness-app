@@ -1,8 +1,8 @@
 import { combineReducers, type Action } from "redux";
-import { exercisesReducer } from "./exercisesCatalog/exercisesCatalog.reducer";
+import { habitsReducer } from "./habits/habits.reducer";
 
 const appReducer = combineReducers({
-    ...exercisesReducer,
+    ...habitsReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

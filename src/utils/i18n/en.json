@@ -3,13 +3,16 @@
         "INSIGHTS_BUTTON": "Insights"
     },
     "SETTINGS": {
-        "LANGUAGE": "Language"
+        "LANGUAGE": "Language",
+        "HABITS": {
+            "PLACEHOLDER": "Habit name",
+            "ADD_BUTTON": "Add Habit"
+        }
     },
     "INPUTS": {
         "HABITS": {
-            "GYM": "Gym",
-            "MEDITATION": "Meditation",
-            "JOURNALING": "Journaling"
+            "TITLE": "Select your habits",
+            "NO_HABITS": "No habits available"
         },
         "MOODS": {
             "TITLE": "Select your mood",
