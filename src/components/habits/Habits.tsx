@@ -1,28 +1,32 @@
-import { Checkbox } from "antd";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../store";
+import { Checkbox, type CheckboxOptionType, type GetProp } from "antd";
 import { useTranslation } from "react-i18next";
+import type { Input } from "../../store/inputs/types";
 
-export const Habits = () => {
+interface HabitsProps {
+    selectedHabits: string[];
+    setSelectedHabits: (updatedFields: Partial<Input>) => void;
+}
+
+export const Habits = (props: HabitsProps) => {
     const { t } = useTranslation();
 
-    const habits = useSelector((state: RootState) => state.habits.habits);
+    const options: CheckboxOptionType<string>[] = [
+        { label: t("INPUTS.HABITS.GYM"), value: "gym" },
+        { label: t("INPUTS.HABITS.MEDITATION"), value: "meditation" },
+        { label: t("INPUTS.HABITS.JOURNALING"), value: "journaling" },
+    ];
 
-    const onChange = (checkedValues: Array<string>) => {
-        console.log("checked = ", checkedValues); // TODO
+    const onChange: GetProp<typeof Checkbox.Group, "onChange"> = (checkedValues) => {
+        props.setSelectedHabits({ habits: checkedValues as string[] });
     };
-
-    if (!habits || habits.length === 0) {
-        return <p>{t("INPUTS.HABITS.NO_HABITS")}</p>;
-    }
 
     return (
         <div className="flex flex-col items-center gap-2 font-bold">
             <p>{t("INPUTS.HABITS.TITLE")}</p>
-            <Checkbox.Group className="w-full flex flex-col items-start gap-2" onChange={onChange}>
-                {habits.map((habit) => (
-                    <Checkbox key={habit.id} value={habit.name} className="font-semibold">
-                        {habit.name}
+            <Checkbox.Group className="w-full flex flex-col items-start gap-2" onChange={onChange} value={props.selectedHabits}>
+                {options.map((option) => (
+                    <Checkbox key={option.value} value={option.value} className="font-semibold">
+                        {option.label}
                     </Checkbox>
                 ))}
             </Checkbox.Group>

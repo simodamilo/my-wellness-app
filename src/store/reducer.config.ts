@@ -1,8 +1,10 @@
 import { combineReducers, type Action } from "redux";
 import { habitsReducer } from "./habits/habits.reducer";
+import { inputsReducer } from "./inputs/inputs.reducer";
 
 const appReducer = combineReducers({
     ...habitsReducer,
+    ...inputsReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

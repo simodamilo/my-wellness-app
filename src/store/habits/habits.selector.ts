@@ -5,6 +5,11 @@ const getHabits = (state: RootState): Habit[] => {
     return state.habits.habits;
 };
 
-export const exercisesSelectors = {
+const isLoading = (state: RootState): boolean => {
+    return state.habits.isLoading;
+};
+
+export const habitsSelectors = {
     getHabits,
+    isLoading,
 };
