@@ -5,14 +5,14 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: "/wellness/",
+    base: "/my-wellness-app/",
     plugins: [
         tailwindcss(),
         react(),
         VitePWA({
             registerType: "autoUpdate",
             workbox: {
-                navigateFallback: "/wellness/index.html",
+                navigateFallback: "/my-wellness-app/index.html",
                 globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
             },
             manifest: {

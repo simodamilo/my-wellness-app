@@ -6,7 +6,7 @@ const ProtectedPage = () => {
     console.log("user at ProtectedPage: ", user);
 
     if (!user) {
-        return <Navigate to="/wellness/login" replace />;
+        return <Navigate to="/my-wellness-app/login" replace />;
     }
 
     return <Outlet />;

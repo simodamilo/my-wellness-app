@@ -1,6 +1,6 @@
 export const routes = {
-    login: "/wellness/login",
-    homepage: "/wellness/homepage",
-    insights: "/wellness/insights",
-    settings: "/wellness/settings",
+    login: "/my-wellness-app/login",
+    homepage: "/my-wellness-app/homepage",
+    insights: "/my-wellness-app/insights",
+    settings: "/my-wellness-app/settings",
 };

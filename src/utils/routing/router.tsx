@@ -8,11 +8,11 @@ import { Settings } from "../../pages/settings/Settings";
 
 export const router = createBrowserRouter([
     {
-        path: "/wellness",
+        path: "/my-wellness-app",
         element: <App />,
         errorElement: <div>Error loading page</div>,
         children: [
-            { index: true, element: <Navigate to="/wellness/login" replace /> },
+            { index: true, element: <Navigate to="/my-wellness-app/login" replace /> },
             {
                 path: "login",
                 element: <Login />,
