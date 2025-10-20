@@ -50,6 +50,12 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
             ])
             .select();
 
+        getNotificationApi().success({
+            message: "Data saved successfully",
+            placement: "bottom",
+            className: "custom-success-notification",
+        });
+
         return { inputs: data as InputPayload[] };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
