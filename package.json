@@ -1,9 +1,9 @@
 {
-  "name": "my-wellness-app",
+  "name": "wellness",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://simodamilo.github.io/my-wellness-app",
+  "homepage": "https://simodamilo.github.io/wellness",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
