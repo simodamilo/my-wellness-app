@@ -77,7 +77,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const resetPassword = async (email: string) => {
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: window.location.origin + "/my-wellness-app/reset-password",
+            redirectTo: "https://simodamilo.github.io/my-wellness-app/reset-password",
         });
         return { error };
     };
