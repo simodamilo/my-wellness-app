@@ -10,6 +10,7 @@ import type { Input } from "../../store/inputs/types";
 import { v4 as uuidv4 } from "uuid";
 import { inputsActions } from "../../store/inputs/inputs.action";
 import { Spin } from "antd";
+import { Notes } from "../../components/notes/Notes";
 
 export const Homepage = () => {
     const dispatch = useAppDispatch();
@@ -92,6 +93,10 @@ export const Homepage = () => {
 
             <CardContainer>
                 <BodyFeeling />
+            </CardContainer>
+
+            <CardContainer>
+                <Notes notes={input?.notes} setNotes={updateInput} />
             </CardContainer>
         </div>
     );
