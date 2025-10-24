@@ -14,6 +14,8 @@ export const Habits = (props: HabitsProps) => {
         { label: t("INPUTS.HABITS.GYM"), value: "gym" },
         { label: t("INPUTS.HABITS.MEDITATION"), value: "meditation" },
         { label: t("INPUTS.HABITS.JOURNALING"), value: "journaling" },
+        { label: t("INPUTS.HABITS.READING"), value: "reading" },
+        { label: t("INPUTS.HABITS.CREATINA"), value: "creatina" },
     ];
 
     const onChange: GetProp<typeof Checkbox.Group, "onChange"> = (checkedValues) => {

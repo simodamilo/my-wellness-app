@@ -8,14 +8,20 @@
             "PLACEHOLDER": "Habit name",
             "ADD_BUTTON": "Add Habit"
         },
-        "LOGOUT_BUTTON": "Log Out"
+        "LOGOUT_BUTTON": "Log Out",
+        "LANGUAGES": {
+            "ENGLISH": "EN",
+            "SPANISH": "ES"
+        }
     },
     "INPUTS": {
         "HABITS": {
             "TITLE": "Select your habits",
             "GYM": "Gym",
             "MEDITATION": "Meditation",
-            "JOURNALING": "Journaling"
+            "JOURNALING": "Journaling",
+            "READING": "Reading",
+            "CREATINA": "Creatina"
         },
         "MOODS": {
             "TITLE": "Select your mood",
@@ -23,7 +29,12 @@
             "CALM": "Calm",
             "NEUTRAL": "Neutral",
             "THOUGHTFUL": "Thinking",
-            "SAD": "Sad"
+            "SAD": "Sad",
+            "SENSITIVE": "Sensitive"
+        },
+        "NOTES": {
+            "TITLE": "Add notes",
+            "PLACEHOLDER": "How was your day?"
         }
     },
     "INSIGHTS": {

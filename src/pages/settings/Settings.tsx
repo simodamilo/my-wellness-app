@@ -38,10 +38,10 @@ export const Settings = () => {
                         <p>{t("SETTINGS.LANGUAGE")}</p>
                         <Radio.Group value={language} onChange={(e) => onChange(e.target.value)}>
                             <Radio.Button value="en" checked={language === "en"}>
-                                EN
+                                {t("SETTINGS.LANGUAGES.ENGLISH")}
                             </Radio.Button>
                             <Radio.Button value="es" checked={language === "es"}>
-                                ES
+                                {t("SETTINGS.LANGUAGES.SPANISH")}
                             </Radio.Button>
                         </Radio.Group>
                     </div>
