@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/auth/AuthProvider";
 
 export const ResetPasswordForm = () => {
-    const navigate = useNavigate();
     const { updatePassword } = useAuth();
 
     const [password, setPassword] = useState("");
