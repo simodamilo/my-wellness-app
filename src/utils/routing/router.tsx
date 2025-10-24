@@ -5,6 +5,9 @@ import ProtectedPage from "../auth/ProtectedPage";
 import { Homepage } from "../../pages/homepage/Homepage";
 import { Insights } from "../../pages/insights/Insights";
 import { Settings } from "../../pages/settings/Settings";
+import { Signup } from "../../pages/signup/Signup";
+import { ForgotPassword } from "../../pages/forgotPassword/ForgotPassword";
+import { ResetPasswordForm } from "../../pages/resetPasswordForm/ResetPasswordForm";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +19,18 @@ export const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login />,
+            },
+            {
+                path: "signup",
+                element: <Signup />,
+            },
+            {
+                path: "forgot-password",
+                element: <ForgotPassword />,
+            },
+            {
+                path: "reset-password",
+                element: <ResetPasswordForm />,
             },
             {
                 path: "homepage",
