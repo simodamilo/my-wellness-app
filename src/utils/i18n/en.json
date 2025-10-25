@@ -16,7 +16,7 @@
     },
     "INPUTS": {
         "HABITS": {
-            "TITLE": "Select your habits",
+            "TITLE": "What did you do today?",
             "GYM": "Gym",
             "MEDITATION": "Meditation",
             "JOURNALING": "Journaling",
@@ -24,13 +24,22 @@
             "CREATINA": "Creatina"
         },
         "MOODS": {
-            "TITLE": "Select your mood",
+            "TITLE": "What is your mood?",
             "HAPPY": "Happy",
             "CALM": "Calm",
             "NEUTRAL": "Neutral",
             "THOUGHTFUL": "Thinking",
             "SAD": "Sad",
             "SENSITIVE": "Sensitive"
+        },
+        "BODY_FEELING": {
+            "TITLE": "How does your body feel today?",
+            "DISCOMFORT_TITLE": "Where do you feel tension or discomfort?",
+            "HEAD": "Head",
+            "CHEST": "Chest",
+            "STOMACH": "Stomach",
+            "ARMS": "Arms",
+            "LEGS": "Legs"
         },
         "NOTES": {
             "TITLE": "Add notes",

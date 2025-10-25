@@ -11,6 +11,11 @@ import { v4 as uuidv4 } from "uuid";
 import { inputsActions } from "../../store/inputs/inputs.action";
 import { Spin } from "antd";
 import { Notes } from "../../components/notes/Notes";
+import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
+import { Sleep } from "../../components/sleep/Sleep";
+import { Nutrition } from "../../components/nutrition/Nutrition";
+import { EnergyLevel } from "../../components/energyLevel/EnergyLevel";
+import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
 
 export const Homepage = () => {
     const dispatch = useAppDispatch();
@@ -50,7 +55,7 @@ export const Homepage = () => {
         // Start a new 5s timer
         saveTimeoutRef.current = setTimeout(() => {
             saveInput();
-        }, 5000);
+        }, 3000);
 
         // Cleanup on unmount or when dependency changes
         return () => {
@@ -81,6 +86,8 @@ export const Homepage = () => {
         return <Spin />;
     }
 
+    console.log("TEST", input);
+
     return (
         <div className="flex flex-col gap-4 pt-[56px] p-4">
             <CardContainer>
@@ -92,7 +99,24 @@ export const Homepage = () => {
             </CardContainer>
 
             <CardContainer>
-                <BodyFeeling />
+                <BodyFeeling selectedBodyFeeling={input?.bodyFeeling} setSelectedBodyFeeling={updateInput} />
+                {input?.bodyFeeling && input.bodyFeeling < 4 && <BodyFeelingDiscomfort selectedDiscomfort={input.bodyFeelingDiscomfort} setSelectedDiscomfort={updateInput} />}
+            </CardContainer>
+
+            <CardContainer>
+                <PeriodInfo />
+            </CardContainer>
+
+            <CardContainer>
+                <Sleep />
+            </CardContainer>
+
+            <CardContainer>
+                <Nutrition />
+            </CardContainer>
+
+            <CardContainer>
+                <EnergyLevel />
             </CardContainer>
 
             <CardContainer>
