@@ -28,18 +28,12 @@ export const ResetPasswordForm = () => {
     };
 
     return (
-        <div className="h-dvh flex items-center justify-center bg-gray-50">
+        <div className="h-dvh flex items-center justify-center px-4">
             <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6">
                 <h2 className="text-2xl font-bold text-center mb-6">Imposta nuova password</h2>
 
                 {success ? (
-                    <p className="text-green-600 text-center">
-                        Password aggiornata con successo! Ora puoi{" "}
-                        <a href="/login" className="text-indigo-600 hover:underline">
-                            accedere
-                        </a>
-                        .
-                    </p>
+                    <p className="text-green-600 text-center">Password aggiornata con successo! Puoi chiudere questa finestra e tornare all&apos;applicazione.</p>
                 ) : (
                     <form onSubmit={handleReset} className="space-y-4">
                         <input type="password" placeholder="Nuova password" className="w-full border p-2 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)} required />
