@@ -28,6 +28,16 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
+        const initAuth = async () => {
+            const { data, error } = await supabase.auth.getSession();
+            if (error) console.error("Error getting session:", error);
+            setSession(data.session);
+            setUser(data.session?.user ?? null);
+            setLoading(false);
+        };
+
+        initAuth();
+
         const {
             data: { subscription },
         } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -36,33 +46,22 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
             setLoading(false);
         });
 
-        (async () => {
-            const {
-                data: { session },
-            } = await supabase.auth.getSession();
-            setSession(session);
-            setUser(session?.user || null);
-            setLoading(false);
-        })();
+        // ✅ Start automatic token refresh (no cleanup needed)
+        supabase.auth.startAutoRefresh();
 
         return () => {
             subscription.unsubscribe();
         };
     }, []);
 
+    // --- AUTH ACTIONS ---
     const signInWithEmail = async (email: string, password: string) => {
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
         return { error };
     };
 
     const signUp = async (email: string, password: string) => {
-        const { error } = await supabase.auth.signUp({
-            email,
-            password,
-        });
+        const { error } = await supabase.auth.signUp({ email, password });
         return { error };
     };
 
