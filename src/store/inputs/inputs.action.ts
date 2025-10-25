@@ -41,6 +41,7 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
                     mood: input.mood,
                     energy_level: input.energyLevel,
                     body_feeling: input.bodyFeeling,
+                    body_feeling_discomfort: input.bodyFeelingDiscomfort,
                     habits: input.habits,
                     period_info: input.periodInfo,
                     notes: input.notes,

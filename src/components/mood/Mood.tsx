@@ -21,7 +21,7 @@ export const Mood = (props: MoodProps) => {
     };
     return (
         <div className="flex flex-col items-center gap-2 font-bold">
-            <p>{t("INPUTS.MOODS.TITLE")}</p>
+            <h2 className="text-lg font-semibold mb-1 text-gray-700">{t("INPUTS.MOODS.TITLE")}</h2>
             <div className="grid grid-cols-3 w-full max-w-[600px]">
                 <div>{singleMood("happy", t("INPUTS.MOODS.HAPPY"), <BsEmojiHeartEyes size={24} />)}</div>
                 <div>{singleMood("calm", t("INPUTS.MOODS.CALM"), <BsEmojiSmile size={24} />)}</div>

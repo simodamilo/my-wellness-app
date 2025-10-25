@@ -9,7 +9,8 @@ export interface Input {
     id: string;
     mood?: string;
     energyLevel?: number;
-    bodyFeeling?: string;
+    bodyFeeling?: number;
+    bodyFeelingDiscomfort?: string[];
     habits?: string[];
     periodInfo?: string;
     notes?: string;
@@ -22,7 +23,8 @@ export interface InputPayload {
     id: string;
     mood?: string;
     energy_level?: number;
-    body_feeling?: string;
+    body_feeling?: number;
+    body_feeling_discomfort?: string[];
     habits?: string[];
     period_info?: string;
     notes?: string;

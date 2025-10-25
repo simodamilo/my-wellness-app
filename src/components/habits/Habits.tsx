@@ -24,7 +24,7 @@ export const Habits = (props: HabitsProps) => {
 
     return (
         <div className="flex flex-col items-center gap-2 font-bold">
-            <p>{t("INPUTS.HABITS.TITLE")}</p>
+            <h2 className="text-lg font-semibold mb-1 text-gray-700">{t("INPUTS.HABITS.TITLE")}</h2>
             <Checkbox.Group className="w-full flex flex-col items-start gap-2" onChange={onChange} value={props.selectedHabits}>
                 {options.map((option) => (
                     <Checkbox key={option.value} value={option.value} className="font-semibold">
