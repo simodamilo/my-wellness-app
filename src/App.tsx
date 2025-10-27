@@ -21,7 +21,7 @@ function App() {
 
     return (
         <NotificationProvider>
-            <div className="w-screen h-screen max-w-[1280px] m-auto text-[var(--secondary-color)]">
+            <div className="h-screen max-w-[1280px] m-auto text-[var(--secondary-color)]">
                 {user && <Navbar />}
                 <Outlet />
             </div>

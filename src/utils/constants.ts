@@ -14,3 +14,18 @@ export const moods = [
     { id: "sad", label: "INPUTS.MOODS.SAD", emoji: "😟" },
     { id: "sensitive", label: "INPUTS.MOODS.SENSITIVE", emoji: "😢" },
 ];
+
+export const bodyZones = [
+    { id: "head", label: "INPUTS.BODY_FEELING.HEAD", emoji: "🧠" },
+    { id: "cramps", label: "INPUTS.BODY_FEELING.CRAMPS", emoji: "🤰" },
+    { id: "stomach", label: "INPUTS.BODY_FEELING.STOMACH", emoji: "🍽️" },
+    { id: "arms", label: "INPUTS.BODY_FEELING.ARMS", emoji: "💪" },
+    { id: "legs", label: "INPUTS.BODY_FEELING.LEGS", emoji: "🦵" },
+    { id: "tired", label: "INPUTS.BODY_FEELING.TIRED", emoji: "😴" },
+];
+
+export const sleeps = [
+    { id: 1, label: "INPUTS.SLEEP.BAD", emoji: "😟" },
+    { id: 2, label: "INPUTS.SLEEP.REGULAR", emoji: "😐" },
+    { id: 3, label: "INPUTS.SLEEP.WELL", emoji: "😄" },
+];

@@ -1,12 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { Input } from "../../store/inputs/types";
 import { motion } from "framer-motion";
-
-const sleeps = [
-    { id: 1, label: "INPUTS.SLEEP.BAD", emoji: "😟" },
-    { id: 2, label: "INPUTS.SLEEP.REGULAR", emoji: "😐" },
-    { id: 3, label: "INPUTS.SLEEP.WELL", emoji: "😄" },
-];
+import { sleeps } from "../../utils/constants";
 
 interface SleepProps {
     selectedSleep?: number;

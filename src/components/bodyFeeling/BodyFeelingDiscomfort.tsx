@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import type { Input } from "../../store/inputs/types";
-
-const bodyZones = [
-    { id: "head", label: "INPUTS.BODY_FEELING.HEAD", emoji: "🧠" },
-    { id: "cramps", label: "INPUTS.BODY_FEELING.CRAMPS", emoji: "🤰" },
-    { id: "stomach", label: "INPUTS.BODY_FEELING.STOMACH", emoji: "🍽️" },
-    { id: "arms", label: "INPUTS.BODY_FEELING.ARMS", emoji: "💪" },
-    { id: "legs", label: "INPUTS.BODY_FEELING.LEGS", emoji: "🦵" },
-    { id: "tired", label: "INPUTS.BODY_FEELING.TIRED", emoji: "😴" },
-];
+import { bodyZones } from "../../utils/constants";
 
 interface BodyFeelingDiscomfortProps {
     selectedDiscomfort?: string[];
