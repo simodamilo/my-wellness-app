@@ -12,7 +12,7 @@ export interface Input {
     bodyFeeling?: number;
     bodyFeelingDiscomfort?: string[];
     habits?: string[];
-    periodInfo?: string;
+    periodInfo?: boolean;
     notes?: string;
     sleep?: number;
     nutritionQuality?: string;
@@ -26,7 +26,7 @@ export interface InputPayload {
     body_feeling?: number;
     body_feeling_discomfort?: string[];
     habits?: string[];
-    period_info?: string;
+    period_info?: boolean;
     notes?: string;
     sleep?: number;
     nutrition_quality?: string;

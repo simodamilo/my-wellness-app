@@ -10,7 +10,7 @@ export const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const glassStyle = "fixed top-0 h-[48px] w-full flex items-center backdrop-blur-sm bg-white/10 z-50";
+    const glassStyle = "fixed top-0 left-0 right-0 h-[48px] w-full flex items-center backdrop-blur-sm bg-white/10 z-50";
 
     if (location.pathname === routes.insights || location.pathname === routes.settings) {
         return (
