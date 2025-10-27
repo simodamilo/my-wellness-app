@@ -1,7 +1,15 @@
-import { type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { BsEmojiHeartEyes, BsEmojiSmile, BsEmojiNeutral, BsEmojiAstonished, BsEmojiFrown, BsEmojiTear } from "react-icons/bs";
 import type { Input } from "../../store/inputs/types";
+import { motion } from "framer-motion";
+
+const moods = [
+    { id: "happy", label: "INPUTS.MOODS.HAPPY", emoji: "😄" },
+    { id: "calm", label: "INPUTS.MOODS.CALM", emoji: "😌" },
+    { id: "neutral", label: "INPUTS.MOODS.NEUTRAL", emoji: "😐" },
+    { id: "thoughtful", label: "INPUTS.MOODS.THOUGHTFUL", emoji: "🤔" },
+    { id: "sad", label: "INPUTS.MOODS.SAD", emoji: "😟" },
+    { id: "sensitive", label: "INPUTS.MOODS.SENSITIVE", emoji: "😢" },
+];
 
 interface MoodProps {
     selectedMood?: string;
@@ -11,24 +19,28 @@ interface MoodProps {
 export const Mood = (props: MoodProps) => {
     const { t } = useTranslation();
 
-    const singleMood = (value: string, label: string, icon: ReactNode) => {
-        return (
-            <div className={`flex flex-col gap-2 items-center py-2 rounded-xl ${props.selectedMood === value && "bg-[#f087b0]"}`} onClick={() => props.setSelectedMood({ mood: value })}>
-                {icon}
-                <p className="text-xs">{label}</p>
-            </div>
-        );
-    };
     return (
-        <div className="flex flex-col items-center gap-2 font-bold">
+        <div className="flex flex-col items-center gap-2 px-4 pb-4">
             <h2 className="text-lg font-semibold mb-1 text-gray-700">{t("INPUTS.MOODS.TITLE")}</h2>
-            <div className="grid grid-cols-3 w-full max-w-[600px]">
-                <div>{singleMood("happy", t("INPUTS.MOODS.HAPPY"), <BsEmojiHeartEyes size={24} />)}</div>
-                <div>{singleMood("calm", t("INPUTS.MOODS.CALM"), <BsEmojiSmile size={24} />)}</div>
-                <div>{singleMood("neutral", t("INPUTS.MOODS.NEUTRAL"), <BsEmojiNeutral size={24} />)}</div>
-                <div>{singleMood("thoughtful", t("INPUTS.MOODS.THOUGHTFUL"), <BsEmojiAstonished size={24} />)}</div>
-                <div>{singleMood("sad", t("INPUTS.MOODS.SAD"), <BsEmojiFrown size={24} />)}</div>
-                <div>{singleMood("sensitive", t("INPUTS.MOODS.SENSITIVE"), <BsEmojiTear size={24} />)}</div>
+            <div className="grid grid-cols-3 gap-4 w-full max-w-xs">
+                {moods.map((mood) => {
+                    const isActive = props.selectedMood === mood.id;
+                    const baseClasses = "flex flex-col items-center justify-center p-3 rounded-2xl backdrop-blur-md border transition-all";
+                    const activeClasses = "bg-[#c2185b]/30 border-[#c2185b]/40 shadow-md";
+                    const inactiveClasses = "bg-white/20 border-white/30";
+
+                    return (
+                        <motion.button
+                            className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
+                            onClick={() => props.setSelectedMood({ mood: mood.id })}
+                            whileTap={{ scale: 0.9 }}
+                            key={mood.id}
+                        >
+                            <span className="text-3xl">{mood.emoji}</span>
+                            <span className="text-sm text-gray-700 mt-1">{t(mood.label)}</span>
+                        </motion.button>
+                    );
+                })}
             </div>
         </div>
     );
