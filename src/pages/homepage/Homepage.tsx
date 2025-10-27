@@ -14,7 +14,6 @@ import { Notes } from "../../components/notes/Notes";
 import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
 import { Sleep } from "../../components/sleep/Sleep";
 import { Nutrition } from "../../components/nutrition/Nutrition";
-import { EnergyLevel } from "../../components/energyLevel/EnergyLevel";
 import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
 
 export const Homepage = () => {
@@ -26,8 +25,6 @@ export const Homepage = () => {
 
     const lastInput = useSelector((state: RootState) => inputsSelectors.getLastInput(state));
     const isLoading = useSelector((state: RootState) => inputsSelectors.getIsLoading(state));
-
-    console.log("lastInput", lastInput);
 
     useEffect(() => {
         dispatch(inputsActions.getLastInput());
@@ -86,8 +83,6 @@ export const Homepage = () => {
         return <Spin />;
     }
 
-    console.log("TEST", input);
-
     return (
         <div className="flex flex-col gap-4 pt-[56px] p-4">
             <CardContainer>
@@ -108,15 +103,11 @@ export const Homepage = () => {
             </CardContainer>
 
             <CardContainer>
-                <Sleep />
+                <Sleep selectedSleep={input?.sleep} setSelectedSleep={updateInput} />
             </CardContainer>
 
             <CardContainer>
                 <Nutrition />
-            </CardContainer>
-
-            <CardContainer>
-                <EnergyLevel />
             </CardContainer>
 
             <CardContainer>

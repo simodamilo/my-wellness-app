@@ -1,6 +1,7 @@
 import type { Input, InputPayload } from "./types";
 
 export const InputMapper = (inputResponse: InputPayload): Input => {
+    console.log("TEST inputResponse.habits", inputResponse.habits);
     return {
         id: inputResponse.id,
         mood: inputResponse.mood,

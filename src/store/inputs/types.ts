@@ -14,7 +14,7 @@ export interface Input {
     habits?: string[];
     periodInfo?: string;
     notes?: string;
-    sleep?: string;
+    sleep?: number;
     nutritionQuality?: string;
     createdAt?: number;
 }
@@ -28,7 +28,7 @@ export interface InputPayload {
     habits?: string[];
     period_info?: string;
     notes?: string;
-    sleep?: string;
+    sleep?: number;
     nutrition_quality?: string;
     created_at?: number;
 }
