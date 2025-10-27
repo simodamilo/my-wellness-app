@@ -36,10 +36,11 @@
             "TITLE": "How does your body feel today?",
             "DISCOMFORT_TITLE": "Where do you feel tension or discomfort?",
             "HEAD": "Head",
-            "CHEST": "Chest",
+            "CRAMPS": "Cramps",
             "STOMACH": "Stomach",
             "ARMS": "Arms",
-            "LEGS": "Legs"
+            "LEGS": "Legs",
+            "TIRED": "Tired"
         },
         "NOTES": {
             "TITLE": "Add notes",

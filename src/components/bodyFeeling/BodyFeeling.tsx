@@ -25,9 +25,9 @@ export const BodyFeeling = (props: BodyFeelingProps) => {
     return (
         <div className="flex flex-col items-center w-full">
             <h2 className="text-lg font-semibold mb-3 text-gray-700">{t("INPUTS.BODY_FEELING.TITLE")}</h2>
-            <div className="flex items-center w-full max-w-sm space-x-3">
-                <span className="text-2xl">😞</span>
-                <Slider min={1} max={10} value={value} onChange={handleChange} className="flex-1" tooltip={{ open: false }} />
+            <div className="flex items-center w-full justify-between gap-2">
+                <span className="text-2xl m-0">😞</span>
+                <Slider min={1} max={10} value={value} onChange={handleChange} className="body-feeling-slider flex-1" tooltip={{ open: false }} />
                 <span className="text-2xl">😄</span>
             </div>
         </div>

@@ -1,0 +1,47 @@
+/* Make slider track taller and rounder */
+.body-feeling-slider .ant-slider-rail {
+    height: 16px;
+    top: 0px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+/* Filled part (track) */
+.body-feeling-slider .ant-slider-track {
+    height: 16px;
+    top: 0px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #c2185b, #ff80ab);
+    box-shadow: 0 0 8px rgba(194, 24, 91, 0.4);
+}
+
+/* Thumb (handle) */
+.body-feeling-slider .ant-slider-handle::after {
+    display: none; /* hide default pseudo handle */
+}
+
+.body-feeling-slider .ant-slider-handle {
+    width: 24px;
+    height: 16px;
+    margin-top: -1px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff, #f7d1de);
+    border: 2px solid #c2185b;
+    box-shadow: 0 0 10px rgba(194, 24, 91, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.body-feeling-slider .ant-slider-handle:hover {
+    transform: scale(1.1);
+}
+
+/* Remove default focus ring */
+.body-feeling-slider .ant-slider-handle:focus {
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.2);
+}
+
+/* Optional: smooth hover and active colors */
+.body-feeling-slider:hover .ant-slider-track {
+    background: linear-gradient(90deg, #d64d80, #ffb1c7);
+}
