@@ -42,6 +42,12 @@
             "LEGS": "Legs",
             "TIRED": "Tired"
         },
+        "SLEEP": {
+            "TITLE": "How did you sleep last night?",
+            "BAD": "Bad",
+            "REGULAR": "Regular",
+            "WELL": "Well"
+        },
         "NOTES": {
             "TITLE": "Add notes",
             "PLACEHOLDER": "How was your day?"

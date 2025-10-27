@@ -1,15 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { Input } from "../../store/inputs/types";
 import { motion } from "framer-motion";
-
-const moods = [
-    { id: "happy", label: "INPUTS.MOODS.HAPPY", emoji: "😄" },
-    { id: "calm", label: "INPUTS.MOODS.CALM", emoji: "😌" },
-    { id: "neutral", label: "INPUTS.MOODS.NEUTRAL", emoji: "😐" },
-    { id: "thoughtful", label: "INPUTS.MOODS.THOUGHTFUL", emoji: "🤔" },
-    { id: "sad", label: "INPUTS.MOODS.SAD", emoji: "😟" },
-    { id: "sensitive", label: "INPUTS.MOODS.SENSITIVE", emoji: "😢" },
-];
+import { moods } from "../../utils/constants";
 
 interface MoodProps {
     selectedMood?: string;
