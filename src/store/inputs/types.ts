@@ -7,7 +7,7 @@ export type InputsState = {
 
 export interface Input {
     id: string;
-    mood?: string;
+    mood?: number;
     energyLevel?: number;
     bodyFeeling?: number;
     bodyFeelingDiscomfort?: string[];
@@ -21,7 +21,7 @@ export interface Input {
 
 export interface InputPayload {
     id: string;
-    mood?: string;
+    mood?: number;
     energy_level?: number;
     body_feeling?: number;
     body_feeling_discomfort?: string[];

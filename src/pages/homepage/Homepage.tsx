@@ -13,7 +13,6 @@ import { Spin } from "antd";
 import { Notes } from "../../components/notes/Notes";
 import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
 import { Sleep } from "../../components/sleep/Sleep";
-import { Nutrition } from "../../components/nutrition/Nutrition";
 import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
 
 export const Homepage = () => {
@@ -95,11 +94,7 @@ export const Homepage = () => {
 
             <CardContainer>
                 <BodyFeeling selectedBodyFeeling={input?.bodyFeeling} setSelectedBodyFeeling={updateInput} />
-                {input?.bodyFeeling && input.bodyFeeling < 4 && <BodyFeelingDiscomfort selectedDiscomfort={input.bodyFeelingDiscomfort} setSelectedDiscomfort={updateInput} />}
-            </CardContainer>
-
-            <CardContainer>
-                <PeriodInfo />
+                <BodyFeelingDiscomfort selectedDiscomfort={input?.bodyFeelingDiscomfort} setSelectedDiscomfort={updateInput} />
             </CardContainer>
 
             <CardContainer>
@@ -107,7 +102,7 @@ export const Homepage = () => {
             </CardContainer>
 
             <CardContainer>
-                <Nutrition />
+                <PeriodInfo selectedPeriod={input?.periodInfo} setSelectedPeriod={updateInput} />
             </CardContainer>
 
             <CardContainer customClassName="md:col-span-2 lg:col-span-3">

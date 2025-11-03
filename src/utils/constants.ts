@@ -7,12 +7,12 @@ export const habits = [
 ];
 
 export const moods = [
-    { id: "happy", label: "INPUTS.MOODS.HAPPY", emoji: "😄" },
-    { id: "calm", label: "INPUTS.MOODS.CALM", emoji: "😌" },
-    { id: "neutral", label: "INPUTS.MOODS.NEUTRAL", emoji: "😐" },
-    { id: "thoughtful", label: "INPUTS.MOODS.THOUGHTFUL", emoji: "🤔" },
-    { id: "sad", label: "INPUTS.MOODS.SAD", emoji: "😟" },
-    { id: "sensitive", label: "INPUTS.MOODS.SENSITIVE", emoji: "😢" },
+    { id: 1, label: "INPUTS.MOODS.SAD", emoji: "😟" },
+    { id: 2, label: "INPUTS.MOODS.CALM", emoji: "😌" },
+    { id: 3, label: "INPUTS.MOODS.NEUTRAL", emoji: "😐" },
+    { id: 4, label: "INPUTS.MOODS.THOUGHTFUL", emoji: "🤔" },
+    { id: 5, label: "INPUTS.MOODS.HAPPY", emoji: "😄" },
+    { id: 6, label: "INPUTS.MOODS.SENSITIVE", emoji: "😢" },
 ];
 
 export const bodyZones = [
@@ -29,3 +29,8 @@ export const sleeps = [
     { id: 2, label: "INPUTS.SLEEP.REGULAR", emoji: "😐" },
     { id: 3, label: "INPUTS.SLEEP.WELL", emoji: "😄" },
 ];
+
+export const period = [
+    { id: 1, label: "INPUTS.PERIOD.YES"},
+    { id: 2, label: "INPUTS.PERIOD.NO"},
+]

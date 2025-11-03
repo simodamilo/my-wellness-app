@@ -13,7 +13,7 @@ export const Notes = (props: NotesProps) => {
 
     return (
         <div className="flex flex-col items-center gap-2">
-            <p className="font-bold">{t("INPUTS.NOTES.TITLE")}</p>
+            <h2 className="text-lg font-semibold mb-1 text-gray-700">{t("INPUTS.NOTES.TITLE")}</h2>
             <TextArea
                 rows={4}
                 value={props.notes}
