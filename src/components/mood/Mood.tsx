@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { moods } from "../../utils/constants";
 
 interface MoodProps {
-    selectedMood?: string;
+    selectedMood?: number;
     setSelectedMood: (updatedFields: Partial<Input>) => void;
 }
 

@@ -48,6 +48,11 @@
             "REGULAR": "Regular",
             "WELL": "Well"
         },
+        "PERIOD": {
+            "TITLE": "Is your period?",
+            "YES": "Yes",
+            "NO": "No"
+        },
         "NOTES": {
             "TITLE": "Add notes",
             "PLACEHOLDER": "How was your day?"

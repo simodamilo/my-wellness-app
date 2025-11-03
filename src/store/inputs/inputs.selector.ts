@@ -1,6 +1,10 @@
 import type { RootState } from "../reducer.config";
 import type { Input } from "./types";
 
+const getInputs = (state: RootState): Input[] => {
+    return state.inputs.inputs;
+};
+
 const getLastInput = (state: RootState): Input | undefined => {
     return state.inputs.lastInput;
 };
@@ -10,6 +14,7 @@ const getIsLoading = (state: RootState): boolean => {
 };
 
 export const inputsSelectors = {
+    getInputs,
     getLastInput,
     getIsLoading,
 };
