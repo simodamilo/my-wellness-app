@@ -14,6 +14,8 @@ export default defineConfig({
             workbox: {
                 navigateFallback: "/my-wellness-app/index.html",
                 globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+                // Allow OneSignal service worker to coexist with PWA service worker
+                additionalManifestEntries: [{ url: "OneSignalSDKWorker.js", revision: null }],
             },
             manifest: {
                 name: "My React PWA",

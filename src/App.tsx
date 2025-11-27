@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { NotificationProvider } from "./components/notificationProvider/NotificationProvider";
 import { Navbar } from "./components/navigationBar/NavBar";
 import { useAuth } from "./utils/auth/AuthProvider";
+import NotificationService from "./utils/NotificatioService";
 
 function App() {
     const { user } = useAuth();
@@ -16,6 +17,12 @@ function App() {
             setTimeout(() => {
                 splash.remove();
             }, 500);
+        }
+
+        NotificationService.init();
+
+        if (user?.id) {
+            NotificationService.setExternalUserId(user.id);
         }
     }, []);
 
