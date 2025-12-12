@@ -19,7 +19,7 @@ const fillMissingDates = (logs: Input[]): Input[] => {
 
     // Helper: convert timestamp → YYYY-MM-DD key
     const dayKey = (ts: number) => {
-        const d = new Date(ts * 1000);
+        const d = new Date(ts);
         const y = d.getUTCFullYear();
         const m = d.getUTCMonth() + 1;
         const day = d.getUTCDate();
@@ -34,9 +34,9 @@ const fillMissingDates = (logs: Input[]): Input[] => {
     });
 
     // Determine first and last day
-    const first = new Date(sorted[0].createdAt! * 1000);
+    const first = new Date(sorted[0].createdAt!);
     first.setUTCHours(0, 0, 0, 0);
-    const last = new Date(sorted[sorted.length - 1].createdAt! * 1000);
+    const last = new Date(sorted[sorted.length - 1].createdAt!);
     last.setUTCHours(0, 0, 0, 0);
 
     // Iterate calendar days
@@ -48,14 +48,14 @@ const fillMissingDates = (logs: Input[]): Input[] => {
         d <= last;
         d.setUTCDate(d.getUTCDate() + 1)
     ) {
-        const key = dayKey(Math.floor(d.getTime() / 1000));
+        const key = dayKey(Math.floor(d.getTime()));
 
         if (dayMap.has(key)) {
             result.push(dayMap.get(key)!);
         } else {
             result.push({
                 id: (missingId++).toString(),
-                createdAt: Math.floor(d.getTime() / 1000),
+                createdAt: Math.floor(d.getTime()),
                 mood: undefined,
                 energyLevel: undefined,
                 bodyFeeling: undefined,
