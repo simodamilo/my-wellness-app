@@ -19,7 +19,7 @@ export const bodyZones = [
     { id: "head", label: "INPUTS.BODY_FEELING.HEAD", emoji: "🧠" },
     { id: "cramps", label: "INPUTS.BODY_FEELING.CRAMPS", emoji: "🤰" },
     { id: "stomach", label: "INPUTS.BODY_FEELING.STOMACH", emoji: "🍽️" },
-    { id: "arms", label: "INPUTS.BODY_FEELING.ARMS", emoji: "💪" },
+    { id: "sick", label: "INPUTS.BODY_FEELING.SICK", emoji: "🤧" },
     { id: "legs", label: "INPUTS.BODY_FEELING.LEGS", emoji: "🦵" },
     { id: "tired", label: "INPUTS.BODY_FEELING.TIRED", emoji: "😴" },
 ];
