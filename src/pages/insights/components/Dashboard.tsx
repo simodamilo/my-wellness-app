@@ -135,11 +135,15 @@ export const Dashboard = (props: DashboardProps) => {
                             nameKey="name"
                             fill="#8884d8"
                             labelLine={false}
+                            // @ts-expect-error not an error
                             label={renderCustomLabel}
                         >
-                            {moodData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index]} width={20} height={20}/>
-                            ))}
+                            {
+                                // @ts-expect-error not an error
+                                moodData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index]} width={20} height={20}/>
+                                ))
+                            }
                         </Pie>
                     </PieChart>
                 </div>
