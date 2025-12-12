@@ -11,6 +11,67 @@ interface DashboardProps {
     inputs: Input[];
 }
 
+const fillMissingDates = (logs: Input[]): Input[] => {
+    if (logs.length === 0) return [];
+
+    // Sort logs
+    const sorted = [...logs].sort((a, b) => a.createdAt! - b.createdAt!);
+
+    // Helper: convert timestamp → YYYY-MM-DD key
+    const dayKey = (ts: number) => {
+        const d = new Date(ts * 1000);
+        const y = d.getUTCFullYear();
+        const m = d.getUTCMonth() + 1;
+        const day = d.getUTCDate();
+        return `${y}-${m}-${day}`;
+    };
+
+    // Map day -> log for quick lookup
+    const dayMap = new Map<string, Input>();
+    sorted.forEach(log => {
+        const key = dayKey(log.createdAt!);
+        if (!dayMap.has(key)) dayMap.set(key, log); // keep first log of that day
+    });
+
+    // Determine first and last day
+    const first = new Date(sorted[0].createdAt! * 1000);
+    first.setUTCHours(0, 0, 0, 0);
+    const last = new Date(sorted[sorted.length - 1].createdAt! * 1000);
+    last.setUTCHours(0, 0, 0, 0);
+
+    // Iterate calendar days
+    const result: Input[] = [];
+    let missingId = 1;
+
+    for (
+        let d = new Date(first);
+        d <= last;
+        d.setUTCDate(d.getUTCDate() + 1)
+    ) {
+        const key = dayKey(Math.floor(d.getTime() / 1000));
+
+        if (dayMap.has(key)) {
+            result.push(dayMap.get(key)!);
+        } else {
+            result.push({
+                id: (missingId++).toString(),
+                createdAt: Math.floor(d.getTime() / 1000),
+                mood: undefined,
+                energyLevel: undefined,
+                bodyFeeling: undefined,
+                bodyFeelingDiscomfort: [],
+                habits: [],
+                periodInfo: undefined,
+                notes: undefined,
+                sleep: undefined,
+                nutritionQuality: undefined
+            });
+        }
+    }
+
+    return result;
+};
+
 export const Dashboard = (props: DashboardProps) => {
     const { t } = useTranslation();
 
@@ -18,7 +79,7 @@ export const Dashboard = (props: DashboardProps) => {
 
     const { habitData, moodData } = useMemo(() => {
         // Take the top 'period' inputs sorted by createdAt
-        const topInputs = [...props.inputs]
+        const topInputs = fillMissingDates(props.inputs)
             .sort((a, b) => (b.createdAt! - a.createdAt!))
             .slice(0, period);
 
