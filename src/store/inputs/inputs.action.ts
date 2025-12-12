@@ -5,7 +5,7 @@ import { getNotificationApi } from "../../utils/notificationService";
 
 const getInputs = createAsyncThunk("data/getInputs", async (_arg, thunkAPI) => {
     try {
-        const { data, error } = await supabase.from("daily_entries").select();
+        const { data, error } = await supabase.from("daily_entries").select("*").order("created_at", { ascending: true });
         if (error) {
             throw Error("Error in get inputs");
         }

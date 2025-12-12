@@ -38,7 +38,7 @@
             "HEAD": "Head",
             "CRAMPS": "Cramps",
             "STOMACH": "Stomach",
-            "ARMS": "Arms",
+            "SICK": "Sick",
             "LEGS": "Legs",
             "TIRED": "Tired"
         },
@@ -59,6 +59,10 @@
         }
     },
     "INSIGHTS": {
-
+        "DASHBOARD_TITLE": "Dashboard",
+        "INSIGHTS_TITLE": "Insights",
+        "LAST_LABEL": "Last",
+        "DAYS_LABEL": "days",
+        "MOOD_TITLE": "Mood"
     }
 }
