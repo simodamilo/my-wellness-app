@@ -1,26 +1,71 @@
 {
     "COMMON": {
-        "INSIGHTS_BUTTON": "Insights"
+        "NAV": {
+            "JOURNAL": "Diario",
+            "INSIGHTS": "Resumen",
+            "SETTINGS": "Ajustes"
+        }
     },
     "SETTINGS": {
-        "LANGUAGE": "Idioma"
+        "LANGUAGE": "Idioma",
+        "HABITS_CATALOG": {
+            "TITLE": "Catálogo de hábitos",
+            "PLACEHOLDER": "Nombre del hábito",
+            "ADD_BUTTON": "Añadir",
+            "REMOVE_BUTTON": "Eliminar",
+            "EDIT_BUTTON": "Editar",
+            "SAVE_BUTTON": "Guardar",
+            "CANCEL_BUTTON": "Cancelar"
+        },
+        "LOGOUT_BUTTON": "Cerrar sesión",
+        "LANGUAGES": {
+            "ENGLISH": "EN",
+            "SPANISH": "ES"
+        }
     },
     "INPUTS": {
         "HABITS": {
-            "GYM": "Gym",
-            "MEDITATION": "Meditacion",
-            "JOURNALING": "Journaling"
+            "TITLE": "¿Qué hiciste hoy?"
         },
         "MOODS": {
-            "TITLE": "Select your mood",
-            "HAPPY": "Happy",
-            "CALM": "Calm",
+            "TITLE": "¿Cómo te sientes?",
+            "HAPPY": "Feliz",
+            "CALM": "Tranquilo",
             "NEUTRAL": "Neutral",
-            "THOUGHTFUL": "Thinking",
-            "SAD": "Sad"
+            "THOUGHTFUL": "Pensativo",
+            "SAD": "Triste",
+            "SENSITIVE": "Sensible",
+            "PLACEHOLDER": "Notas sobre tu ánimo..."
+        },
+        "BODY_FEELING": {
+            "TITLE": "¿Cómo se siente tu cuerpo hoy?",
+            "DISCOMFORT_TITLE": "¿Dónde sientes tensión o molestia?",
+            "HEAD": "Cabeza",
+            "CRAMPS": "Cólicos",
+            "STOMACH": "Estómago",
+            "SICK": "Enfermo",
+            "LEGS": "Piernas",
+            "TIRED": "Cansado"
+        },
+        "SLEEP": {
+            "TITLE": "¿Cómo dormiste anoche?",
+            "BAD": "Mal",
+            "REGULAR": "Regular",
+            "WELL": "Bien"
+        },
+        "PERIOD": {
+            "CHIP_LABEL": "Regla hoy"
+        },
+        "NOTES": {
+            "TITLE": "Añadir notas",
+            "PLACEHOLDER": "¿Qué tal tu día?"
+        },
+        "NUTRITION": {
+            "TITLE": "¿Qué comiste hoy?",
+            "PLACEHOLDER": "Notas sobre tus comidas..."
         }
     },
     "INSIGHTS": {
-
+        "REMOVED_LABEL": "eliminado"
     }
 }

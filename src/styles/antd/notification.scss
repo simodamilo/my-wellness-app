@@ -29,12 +29,31 @@
 
 /* SUCCESS */
 .custom-success-notification {
-    background-color: green;
+    background-color: #c2185b;
+    border-radius: 9999px !important;
+    padding: 6px 14px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    box-shadow: 0 4px 12px rgba(194, 24, 91, 0.25);
 }
 
-.custom-success-notification .ant-notification-notice-message,
-.custom-success-notification .ant-notification-notice-close {
+.custom-success-notification .ant-notification-notice-message {
     color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    margin-inline-start: 28px !important;
+}
+
+.custom-success-notification .ant-notification-notice-close {
+    display: none !important;
+}
+
+.custom-success-notification .ant-notification-notice-icon {
+    margin-inline-start: 0 !important;
+}
+
+.custom-success-notification .ant-notification-notice-description {
+    display: none !important;
 }
 
 /* ERROR */

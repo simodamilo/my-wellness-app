@@ -1,7 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
-import type { HabitPayload, HabitsState } from "./types";
+import type { HabitsState } from "./types";
 import { habitsActions } from "./habits.action";
-import { HabitMapper } from "./habits.mapper";
 
 const habitsState: HabitsState = {
     habits: [],
@@ -21,10 +20,6 @@ export const habitsReducer = {
             })
             .addCase(habitsActions.getHabits.fulfilled, (state, action) => {
                 const { habits } = action.payload;
-                habits.map((habit: HabitPayload) => {
-                    return HabitMapper(habit);
-                });
-
                 return {
                     ...state,
                     habits,
@@ -61,6 +56,22 @@ export const habitsReducer = {
                     isError: true,
                 };
             })
+            .addCase(habitsActions.updateHabit.fulfilled, (state, action) => {
+                const updated = action.payload;
+                return {
+                    ...state,
+                    habits: state.habits.map((h) => (h.id === updated.id ? { ...h, ...updated } : h)),
+                    isLoading: false,
+                    isError: false,
+                };
+            })
+            .addCase(habitsActions.updateHabit.rejected, (state) => {
+                return {
+                    ...state,
+                    isLoading: false,
+                    isError: true,
+                };
+            })
             .addCase(habitsActions.deleteHabit.pending, (state) => {
                 return {
                     ...state,
@@ -69,9 +80,12 @@ export const habitsReducer = {
                 };
             })
             .addCase(habitsActions.deleteHabit.fulfilled, (state, action) => {
+                const { id, deletedAt } = action.payload;
                 return {
                     ...state,
-                    habits: [...state.habits.filter((habit) => habit.id !== action.payload)],
+                    habits: state.habits.map((h) =>
+                        h.id === id ? { ...h, deletedAt } : h
+                    ),
                     isLoading: false,
                     isError: false,
                 };

@@ -5,6 +5,12 @@
     font-size: 16px !important;
 }
 
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector {
+    border-radius: 14px !important;
+}
+
 .ant-input-group-wrapper-outlined .ant-input-group-addon {
     min-width: 40px;
 }

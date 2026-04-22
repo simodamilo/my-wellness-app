@@ -59,7 +59,7 @@ export const inputsReducer = {
                 const mappedInput: Input = InputMapper(inputs);
 
                 const latestTimestamp = mappedInput.createdAt;
-                const latestDate = new Date(latestTimestamp!);
+                const latestDate = new Date(latestTimestamp! * 1000);
 
                 const now = new Date();
                 const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());

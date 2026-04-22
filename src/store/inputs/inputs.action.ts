@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "../supabaseClient";
 import type { Input, InputPayload } from "./types";
 import { getNotificationApi } from "../../utils/notificationService";
+import { showSaveToast } from "../../components/saveToast/SaveToast";
 
 const getInputs = createAsyncThunk("data/getInputs", async (_arg, thunkAPI) => {
     try {
@@ -39,6 +40,7 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
                 {
                     id: input.id,
                     mood: input.mood,
+                    mood_notes: input.moodNotes,
                     energy_level: input.energyLevel,
                     body_feeling: input.bodyFeeling,
                     body_feeling_discomfort: input.bodyFeelingDiscomfort,
@@ -47,15 +49,12 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
                     notes: input.notes,
                     sleep: input.sleep,
                     nutrition_quality: input.nutritionQuality,
+                    nutrition_notes: input.nutritionNotes,
                 },
             ])
             .select();
 
-        getNotificationApi().success({
-            message: "Data saved successfully",
-            placement: "bottom",
-            className: "custom-success-notification",
-        });
+        showSaveToast();
 
         return { inputs: data as InputPayload[] };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

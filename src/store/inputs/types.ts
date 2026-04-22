@@ -8,6 +8,7 @@ export type InputsState = {
 export interface Input {
     id: string;
     mood?: number;
+    moodNotes?: string;
     energyLevel?: number;
     bodyFeeling?: number;
     bodyFeelingDiscomfort?: string[];
@@ -15,13 +16,15 @@ export interface Input {
     periodInfo?: boolean;
     notes?: string;
     sleep?: number;
-    nutritionQuality?: string;
+    nutritionQuality?: number;
+    nutritionNotes?: string;
     createdAt?: number;
 }
 
 export interface InputPayload {
     id: string;
     mood?: number;
+    mood_notes?: string;
     energy_level?: number;
     body_feeling?: number;
     body_feeling_discomfort?: string[];
@@ -29,6 +32,7 @@ export interface InputPayload {
     period_info?: boolean;
     notes?: string;
     sleep?: number;
-    nutrition_quality?: string;
+    nutrition_quality?: number;
+    nutrition_notes?: string;
     created_at?: number;
 }

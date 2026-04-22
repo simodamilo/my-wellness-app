@@ -1,10 +1,14 @@
+import { Input as AntInput } from "antd";
 import { useTranslation } from "react-i18next";
 import type { Input } from "../../store/inputs/types";
 import { motion } from "framer-motion";
 import { moods } from "../../utils/constants";
 
+const { TextArea } = AntInput;
+
 interface MoodProps {
     selectedMood?: number;
+    moodNotes?: string;
     setSelectedMood: (updatedFields: Partial<Input>) => void;
 }
 
@@ -33,6 +37,15 @@ export const Mood = (props: MoodProps) => {
                         </motion.button>
                     );
                 })}
+            </div>
+            <div className="w-full pt-2">
+                <TextArea
+                    rows={3}
+                    value={props.moodNotes}
+                    placeholder={t("INPUTS.MOODS.PLACEHOLDER")}
+                    onChange={(e) => props.setSelectedMood({ moodNotes: e.target.value })}
+                    autoSize={{ minRows: 2, maxRows: 4 }}
+                />
             </div>
         </div>
     );
