@@ -1,12 +1,21 @@
 {
     "COMMON": {
-        "INSIGHTS_BUTTON": "Insights"
+        "NAV": {
+            "JOURNAL": "Journal",
+            "INSIGHTS": "Recap",
+            "SETTINGS": "Settings"
+        }
     },
     "SETTINGS": {
         "LANGUAGE": "Language",
         "HABITS_CATALOG": {
+            "TITLE": "Habit catalog",
             "PLACEHOLDER": "Habit name",
-            "ADD_BUTTON": "Add Habit"
+            "ADD_BUTTON": "Add",
+            "REMOVE_BUTTON": "Remove",
+            "EDIT_BUTTON": "Edit",
+            "SAVE_BUTTON": "Save",
+            "CANCEL_BUTTON": "Cancel"
         },
         "LOGOUT_BUTTON": "Log Out",
         "LANGUAGES": {
@@ -16,12 +25,7 @@
     },
     "INPUTS": {
         "HABITS": {
-            "TITLE": "What did you do today?",
-            "GYM": "Gym",
-            "MEDITATION": "Meditation",
-            "JOURNALING": "Journaling",
-            "READING": "Reading",
-            "CREATINA": "Creatina"
+            "TITLE": "What did you do today?"
         },
         "MOODS": {
             "TITLE": "What is your mood?",
@@ -30,7 +34,8 @@
             "NEUTRAL": "Neutral",
             "THOUGHTFUL": "Thinking",
             "SAD": "Sad",
-            "SENSITIVE": "Sensitive"
+            "SENSITIVE": "Sensitive",
+            "PLACEHOLDER": "Notes about your mood..."
         },
         "BODY_FEELING": {
             "TITLE": "How does your body feel today?",
@@ -49,20 +54,18 @@
             "WELL": "Well"
         },
         "PERIOD": {
-            "TITLE": "Is your period?",
-            "YES": "Yes",
-            "NO": "No"
+            "CHIP_LABEL": "Period today"
         },
         "NOTES": {
             "TITLE": "Add notes",
             "PLACEHOLDER": "How was your day?"
+        },
+        "NUTRITION": {
+            "TITLE": "What did you eat today?",
+            "PLACEHOLDER": "Notes about your meals..."
         }
     },
     "INSIGHTS": {
-        "DASHBOARD_TITLE": "Dashboard",
-        "INSIGHTS_TITLE": "Insights",
-        "LAST_LABEL": "Last",
-        "DAYS_LABEL": "days",
-        "MOOD_TITLE": "Mood"
+        "REMOVED_LABEL": "removed"
     }
 }

@@ -10,14 +10,16 @@ import type { Input } from "../../store/inputs/types";
 import { v4 as uuidv4 } from "uuid";
 import { inputsActions } from "../../store/inputs/inputs.action";
 import { Spin } from "antd";
-import { Notes } from "../../components/notes/Notes";
 import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
 import { Sleep } from "../../components/sleep/Sleep";
 import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
+import { Nutrition } from "../../components/nutrition/Nutrition";
 
 export const Homepage = () => {
     const dispatch = useAppDispatch();
     const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const latestInputRef = useRef<Input | undefined>(undefined);
+    const hasPendingSaveRef = useRef<boolean>(false);
 
     const [input, setInput] = useState<Input>();
     const [isInputUpdated, setIsInputUpdated] = useState<boolean>(false);
@@ -41,19 +43,21 @@ export const Homepage = () => {
     }, [lastInput]);
 
     useEffect(() => {
+        latestInputRef.current = input;
+        hasPendingSaveRef.current = isInputUpdated;
+    }, [input, isInputUpdated]);
+
+    useEffect(() => {
         if (!isInputUpdated) return;
 
-        // Clear previous timer if user types again
         if (saveTimeoutRef.current) {
             clearTimeout(saveTimeoutRef.current);
         }
 
-        // Start a new 5s timer
         saveTimeoutRef.current = setTimeout(() => {
             saveInput();
         }, 3000);
 
-        // Cleanup on unmount or when dependency changes
         return () => {
             if (saveTimeoutRef.current) {
                 clearTimeout(saveTimeoutRef.current);
@@ -61,6 +65,16 @@ export const Homepage = () => {
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [input, isInputUpdated]);
+
+    // On unmount: flush any pending debounced save so navigation doesn't drop it.
+    useEffect(() => {
+        return () => {
+            if (hasPendingSaveRef.current && latestInputRef.current) {
+                dispatch(inputsActions.addInput(latestInputRef.current));
+            }
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const updateInput = (updatedFields: Partial<Input>) => {
         setInput((prevInput) => {
@@ -83,13 +97,13 @@ export const Homepage = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-[56px] p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 pb-24">
             <CardContainer>
                 <Habits selectedHabits={input?.habits || []} setSelectedHabits={updateInput} />
             </CardContainer>
 
             <CardContainer>
-                <Mood selectedMood={input?.mood} setSelectedMood={updateInput} />
+                <Mood selectedMood={input?.mood} moodNotes={input?.moodNotes} setSelectedMood={updateInput} />
             </CardContainer>
 
             <CardContainer>
@@ -105,8 +119,8 @@ export const Homepage = () => {
                 <PeriodInfo selectedPeriod={input?.periodInfo} setSelectedPeriod={updateInput} />
             </CardContainer>
 
-            <CardContainer customClassName="md:col-span-2 lg:col-span-3">
-                <Notes notes={input?.notes} setNotes={updateInput} />
+            <CardContainer>
+                <Nutrition selectedNutrition={input?.nutritionQuality} nutritionNotes={input?.nutritionNotes} setNutrition={updateInput} />
             </CardContainer>
         </div>
     );

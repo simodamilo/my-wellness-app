@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { NotificationProvider } from "./components/notificationProvider/NotificationProvider";
 import { Navbar } from "./components/navigationBar/NavBar";
+import { SaveToast } from "./components/saveToast/SaveToast";
 import { useAuth } from "./utils/auth/AuthProvider";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <NotificationProvider>
             <div className="h-screen max-w-[1280px] m-auto text-[var(--secondary-color)]">
                 {user && <Navbar />}
+                <SaveToast />
                 <Outlet />
             </div>
         </NotificationProvider>

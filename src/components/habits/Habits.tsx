@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import type { Input } from "../../store/inputs/types";
+import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { habits } from "../../utils/constants";
+import type { Input } from "../../store/inputs/types";
+import type { RootState } from "../../store";
+import { useAppDispatch } from "../../store";
+import { habitsActions } from "../../store/habits/habits.action";
+import { habitsSelectors } from "../../store/habits/habits.selector";
 
 interface HabitsProps {
     selectedHabits: string[];
@@ -11,8 +15,18 @@ interface HabitsProps {
 
 export const Habits = (props: HabitsProps) => {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+
+    const habits = useSelector((state: RootState) => habitsSelectors.getHabits(state));
 
     const [selected, setSelected] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (habits.length === 0) {
+            dispatch(habitsActions.getHabits());
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         setSelected(props.selectedHabits || []);
@@ -35,9 +49,14 @@ export const Habits = (props: HabitsProps) => {
                     const inactiveClasses = "bg-white/20 border-white/30";
 
                     return (
-                        <motion.button className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`} onClick={() => toggleSelect(habit.id)} whileTap={{ scale: 0.9 }} key={habit.id}>
+                        <motion.button
+                            className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
+                            onClick={() => toggleSelect(habit.id)}
+                            whileTap={{ scale: 0.9 }}
+                            key={habit.id}
+                        >
                             <span className="text-3xl">{habit.emoji}</span>
-                            <span className="text-sm text-gray-700 mt-1">{t(habit.label)}</span>
+                            <span className="text-sm text-gray-700 mt-1">{habit.name}</span>
                         </motion.button>
                     );
                 })}
