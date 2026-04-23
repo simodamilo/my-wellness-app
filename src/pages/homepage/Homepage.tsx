@@ -14,8 +14,10 @@ import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
 import { Sleep } from "../../components/sleep/Sleep";
 import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
 import { Nutrition } from "../../components/nutrition/Nutrition";
+import { useTranslation } from "react-i18next";
 
 export const Homepage = () => {
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const latestInputRef = useRef<Input | undefined>(undefined);
@@ -97,7 +99,9 @@ export const Homepage = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 pb-24">
+        <div className="p-4 pb-24">
+            <h1 className="text-2xl font-semibold mb-4 text-gray-700 text-center">{t("JOURNAL.TITLE")} ☀️</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <CardContainer>
                 <Habits selectedHabits={input?.habits || []} setSelectedHabits={updateInput} />
             </CardContainer>
@@ -112,16 +116,17 @@ export const Homepage = () => {
             </CardContainer>
 
             <CardContainer>
+                <Nutrition selectedNutrition={input?.nutritionQuality} nutritionNotes={input?.nutritionNotes} setNutrition={updateInput} />
+            </CardContainer>
+
+            <CardContainer>
                 <Sleep selectedSleep={input?.sleep} setSelectedSleep={updateInput} />
             </CardContainer>
 
             <CardContainer>
                 <PeriodInfo selectedPeriod={input?.periodInfo} setSelectedPeriod={updateInput} />
             </CardContainer>
-
-            <CardContainer>
-                <Nutrition selectedNutrition={input?.nutritionQuality} nutritionNotes={input?.nutritionNotes} setNutrition={updateInput} />
-            </CardContainer>
+            </div>
         </div>
     );
 };

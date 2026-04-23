@@ -82,7 +82,7 @@ export const Dashboard = (props: DashboardProps) => {
     return (
         <>
             <div className="flex flex-col gap-4 p-3 bg-white shadow rounded-2xl">
-                <div className="flex gap-2 items-center flex-wrap">
+                <div className="flex gap-2 items-center justify-center flex-wrap">
                     {options.map((option) => {
                         const isActive = period === option.key;
                         return (

@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, type RootState } from "../../store";
 import { habitsActions } from "../../store/habits/habits.action";
-import { Button, Input, Popover, Spin } from "antd";
+import { Input, Popover, Spin } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import type { Habit } from "../../store/habits/types";
 import { useTranslation } from "react-i18next";
 import { habitsSelectors } from "../../store/habits/habits.selector";
-import EmojiPicker, { EmojiStyle, type EmojiClickData } from "emoji-picker-react";
 import { IoPencil, IoTrashOutline, IoCheckmark, IoClose, IoAdd } from "react-icons/io5";
 
 const DEFAULT_EMOJI = "⭐";
+
+const HABIT_EMOJIS = [
+    "⭐", "🏋️", "🏃", "🚶", "🧘", "🤸", "🚴", "🏊",
+    "📖", "✍️", "📝", "🎨", "🎵", "🎸", "📚", "🧠",
+    "🥗", "🍎", "🥦", "🥛", "💧", "☕", "🍵", "🥤",
+    "😴", "🌙", "☀️", "🌱", "🌸", "🌿", "💆", "🛁",
+    "💊", "💖", "🧡", "💛", "💚", "💙", "💜", "✨",
+    "🔥", "⚡", "🎯", "🏆", "✅", "📅", "⏰", "🎉",
+];
 
 const EmojiTriggerButton = ({
     emoji,
@@ -30,23 +38,33 @@ const EmojiTriggerButton = ({
         open={open}
         onOpenChange={setOpen}
         content={
-            <EmojiPicker
-                onEmojiClick={(data: EmojiClickData) => {
-                    onPick(data.emoji);
-                    setOpen(false);
-                }}
-                emojiStyle={EmojiStyle.NATIVE}
-                width={300}
-                height={350}
-            />
+            <div className="grid grid-cols-8 gap-1 w-[260px] max-h-[220px] overflow-y-auto p-1">
+                {HABIT_EMOJIS.map((e) => {
+                    const isSelected = e === emoji;
+                    return (
+                        <button
+                            key={e}
+                            onClick={() => {
+                                onPick(e);
+                                setOpen(false);
+                            }}
+                            className={`flex items-center justify-center w-8 h-8 rounded-lg text-lg transition-colors ${
+                                isSelected ? "bg-[#c2185b]/15 ring-1 ring-[#c2185b]" : "hover:bg-gray-100"
+                            }`}
+                        >
+                            {e}
+                        </button>
+                    );
+                })}
+            </div>
         }
     >
         <button
-            className={`flex items-center justify-center rounded-full bg-white/70 hover:bg-white transition-colors ${
+            className={`flex items-center justify-center rounded-full bg-white/70 hover:bg-white transition-colors shrink-0 leading-none ${
                 size === "sm" ? "w-8 h-8 text-lg" : "w-10 h-10 text-xl"
             }`}
         >
-            {emoji}
+            <span className="leading-none -translate-y-[1px]">{emoji}</span>
         </button>
     </Popover>
 );
@@ -83,7 +101,7 @@ const HabitRow = ({ habit }: { habit: Habit }) => {
 
     if (isEditing) {
         return (
-            <div className="flex items-center gap-2 py-2 px-2">
+            <div className="flex items-center gap-2">
                 <EmojiTriggerButton
                     size="sm"
                     emoji={draftEmoji}
@@ -114,7 +132,7 @@ const HabitRow = ({ habit }: { habit: Habit }) => {
     }
 
     return (
-        <div className="group flex justify-between items-center py-2 px-2 rounded-xl hover:bg-white/60 transition-colors">
+        <div className="group flex justify-between items-center rounded-xl hover:bg-white/60 transition-colors">
             <div className="flex items-center gap-3">
                 <span className="text-xl">{habit.emoji}</span>
                 <p className="font-medium text-sm text-gray-800">{habit.name}</p>
@@ -185,7 +203,7 @@ export const HabitsCatalog = () => {
                     ))}
                 </div>
             )}
-            <div className="flex gap-2 items-center pt-1">
+            <div className="flex gap-2 items-center">
                 <EmojiTriggerButton
                     size="sm"
                     emoji={newEmoji}
@@ -199,12 +217,13 @@ export const HabitsCatalog = () => {
                     onChange={(e) => setNewHabit(e.target.value)}
                     onPressEnter={onAddHabit}
                 />
-                <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<IoAdd size={18} />}
+                <button
                     onClick={onAddHabit}
-                />
+                    className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-[#c2185b] text-white hover:bg-[#a31650] transition-colors"
+                    aria-label="Add"
+                >
+                    <IoAdd size={18} />
+                </button>
             </div>
         </div>
     );

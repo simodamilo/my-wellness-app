@@ -28,9 +28,9 @@ export const Navbar = () => {
     const itemWidthPct = 100 / items.length;
 
     return (
-        <div className="fixed bottom-3 left-0 right-0 z-50">
+        <div className="fixed bottom-6 left-0 right-0 z-50">
             <div className="max-w-[1280px] mx-auto px-4">
-                <div className="relative flex items-stretch p-1 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+                <div className="relative flex items-stretch p-1 rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-[#c2185b]/40">
                     <motion.div
                         className="absolute top-1 bottom-1 bg-[#c2185b] rounded-full"
                         initial={false}
@@ -44,7 +44,7 @@ export const Navbar = () => {
                             <button
                                 key={route}
                                 onClick={() => navigate(route)}
-                                className="relative z-10 flex items-center justify-center gap-2 py-2 flex-1"
+                                className="relative z-10 flex items-center justify-center gap-2 py-3.5 flex-1"
                             >
                                 <Icon
                                     size={20}

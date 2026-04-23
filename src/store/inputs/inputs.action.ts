@@ -69,10 +69,40 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
     }
 });
 
+type BulkUpsertRow = {
+    id: string;
+    habits: string[];
+    created_at?: number;
+};
+
+const bulkUpsertInputs = createAsyncThunk("data/bulkUpsertInputs", async (rows: BulkUpsertRow[], thunkAPI) => {
+    try {
+        const { error } = await supabase.from("daily_entries").upsert(rows);
+        if (error) {
+            throw Error("Error in bulk upsert inputs");
+        }
+
+        showSaveToast();
+
+        await thunkAPI.dispatch(getInputs());
+        return;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        console.error("Error in bulk upsert inputs", error.message);
+        getNotificationApi().error({
+            message: "Error in saving changes",
+            placement: "bottom",
+            className: "custom-error-notification",
+        });
+        return thunkAPI.rejectWithValue(error.message);
+    }
+});
+
 const inputsActions = {
     getInputs,
     getLastInput,
     addInput,
+    bulkUpsertInputs,
 };
 
 export { inputsActions };
