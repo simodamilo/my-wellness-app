@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { inputsSelectors } from "../../store/inputs/inputs.selector.ts";
 import { Dashboard } from '../../pages/insights/components/Dashboard.tsx';
 import { WeeklyRecap } from '../../pages/insights/components/WeeklyRecap.tsx';
+import { EnergyTrend } from '../../pages/insights/components/EnergyTrend.tsx';
 import { useTranslation } from "react-i18next";
 
 export const Insights = () => {
@@ -23,6 +24,7 @@ export const Insights = () => {
             <h1 className="text-2xl font-semibold text-gray-700 text-center">{t("INSIGHTS.TITLE")} 🎯</h1>
             <WeeklyRecap inputs={inputs}/>
             <Dashboard inputs={inputs}/>
+            <EnergyTrend inputs={inputs}/>
         </div>
     );
 };

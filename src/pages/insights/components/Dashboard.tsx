@@ -68,7 +68,19 @@ export const Dashboard = (props: DashboardProps) => {
                 };
             });
 
-        return [...activeTiles, ...deletedTiles].sort((a, b) => b.count - a.count);
+        const checkDefs = [
+            { id: 'check-drankWater', emoji: '💧', label: t('INPUTS.DAILY_CHECKS.WATER'), field: 'drankWater' as const },
+            { id: 'check-ateVegetables', emoji: '🥦', label: t('INPUTS.DAILY_CHECKS.VEGETABLES'), field: 'ateVegetables' as const },
+            { id: 'check-bigBelly', emoji: '🎈', label: t('INPUTS.DAILY_CHECKS.BIG_BELLY'), field: 'bigBelly' as const },
+        ];
+        const checkTiles = checkDefs.map((def) => ({
+            id: def.id,
+            emoji: def.emoji,
+            label: def.label,
+            count: windowInputs.filter((i) => i[def.field] === true).length,
+        }));
+
+        return [...[...activeTiles, ...deletedTiles].sort((a, b) => b.count - a.count), ...checkTiles];
     }, [props.inputs, period, allHabits, t]);
 
     const maxCount = Math.max(1, ...tiles.map((tile) => tile.count));

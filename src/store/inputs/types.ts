@@ -10,6 +10,9 @@ export interface Input {
     mood?: number;
     moodNotes?: string;
     energyLevel?: number;
+    drankWater?: boolean;
+    ateVegetables?: boolean;
+    bigBelly?: boolean;
     bodyFeeling?: number;
     bodyFeelingDiscomfort?: string[];
     habits?: string[];
@@ -26,6 +29,9 @@ export interface InputPayload {
     mood?: number;
     mood_notes?: string;
     energy_level?: number;
+    drank_water?: boolean;
+    ate_vegetables?: boolean;
+    big_belly?: boolean;
     body_feeling?: number;
     body_feeling_discomfort?: string[];
     habits?: string[];

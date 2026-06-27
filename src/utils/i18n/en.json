@@ -50,6 +50,15 @@
             "LEGS": "Legs",
             "TIRED": "Tired"
         },
+        "ENERGY_LEVEL": {
+            "TITLE": "What is your energy level today?"
+        },
+        "DAILY_CHECKS": {
+            "TITLE": "Daily checks",
+            "WATER": "Drank water",
+            "VEGETABLES": "Ate vegetables",
+            "BIG_BELLY": "Big belly"
+        },
         "SLEEP": {
             "TITLE": "How did you sleep last night?",
             "BAD": "Bad",
@@ -70,6 +79,9 @@
     },
     "INSIGHTS": {
         "TITLE": "Recap",
-        "REMOVED_LABEL": "removed"
+        "REMOVED_LABEL": "removed",
+        "ENERGY_TREND": {
+            "TITLE": "Energy level (last 30 days)"
+        }
     }
 }

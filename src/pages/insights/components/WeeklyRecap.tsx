@@ -7,6 +7,7 @@ import { habitsSelectors } from '../../../store/habits/habits.selector.ts';
 import { inputsActions } from '../../../store/inputs/inputs.action.ts';
 import { IoPencilOutline, IoCheckmark, IoClose } from 'react-icons/io5';
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
 interface WeeklyRecapProps {
     inputs: Input[];
@@ -33,6 +34,7 @@ const toSeconds = (ts?: number): number | undefined => {
 
 export const WeeklyRecap = (props: WeeklyRecapProps) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation();
 
     const allHabits = useSelector((state: RootState) => habitsSelectors.getAllHabits(state));
 
@@ -247,6 +249,25 @@ export const WeeklyRecap = (props: WeeklyRecapProps) => {
                                     />
                                 );
                             }
+                            const future = isEditing && dayIndex > todayIndex ? 'opacity-40' : '';
+                            return <div key={dayIndex} className={`${base} ${color} ${future}`} />;
+                        })}
+                    </div>
+                </div>
+            ))}
+            {([
+                { emoji: '💧', label: t('INPUTS.DAILY_CHECKS.WATER'), field: 'drankWater' as const },
+                { emoji: '🥦', label: t('INPUTS.DAILY_CHECKS.VEGETABLES'), field: 'ateVegetables' as const },
+                { emoji: '🎈', label: t('INPUTS.DAILY_CHECKS.BIG_BELLY'), field: 'bigBelly' as const },
+            ]).map((check) => (
+                <div key={check.field} className="grid grid-cols-[2rem_6rem_1fr] items-center gap-2">
+                    <span className="text-xl">{check.emoji}</span>
+                    <span className="text-sm text-gray-700 truncate">{check.label}</span>
+                    <div className="grid grid-cols-7 gap-1">
+                        {Array.from({ length: 7 }, (_, i) => i).map((dayIndex) => {
+                            const done = entryByDay.get(dayIndex)?.[check.field] === true;
+                            const base = 'h-3 w-3 rounded-full mx-auto';
+                            const color = done ? 'bg-[#c2185b]' : 'bg-gray-200';
                             const future = isEditing && dayIndex > todayIndex ? 'opacity-40' : '';
                             return <div key={dayIndex} className={`${base} ${color} ${future}`} />;
                         })}

@@ -34,7 +34,7 @@ const getLastInput = createAsyncThunk("data/getLastInput", async (_arg, thunkAPI
 
 const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI) => {
     try {
-        const { data } = await supabase
+        const { data, error } = await supabase
             .from("daily_entries")
             .upsert([
                 {
@@ -42,6 +42,9 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
                     mood: input.mood,
                     mood_notes: input.moodNotes,
                     energy_level: input.energyLevel,
+                    drank_water: input.drankWater,
+                    ate_vegetables: input.ateVegetables,
+                    big_belly: input.bigBelly,
                     body_feeling: input.bodyFeeling,
                     body_feeling_discomfort: input.bodyFeelingDiscomfort,
                     habits: input.habits,
@@ -53,6 +56,10 @@ const addInput = createAsyncThunk("data/addInput", async (input: Input, thunkAPI
                 },
             ])
             .select();
+
+        if (error) {
+            throw Error(error.message);
+        }
 
         showSaveToast();
 

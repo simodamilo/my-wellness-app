@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BodyFeeling } from "../../components/bodyFeeling/BodyFeeling";
+import { EnergyLevel } from "../../components/energyLevel/EnergyLevel";
+import { DailyChecks } from "../../components/dailyChecks/DailyChecks";
 import { CardContainer } from "../../components/cardContainer/CardContainer";
 import { Habits } from "../../components/habits/Habits";
 import { Mood } from "../../components/mood/Mood";
@@ -113,6 +115,14 @@ export const Homepage = () => {
             <CardContainer>
                 <BodyFeeling selectedBodyFeeling={input?.bodyFeeling} setSelectedBodyFeeling={updateInput} />
                 <BodyFeelingDiscomfort selectedDiscomfort={input?.bodyFeelingDiscomfort} setSelectedDiscomfort={updateInput} />
+            </CardContainer>
+
+            <CardContainer>
+                <EnergyLevel selectedEnergyLevel={input?.energyLevel} setSelectedEnergyLevel={updateInput} />
+            </CardContainer>
+
+            <CardContainer>
+                <DailyChecks drankWater={input?.drankWater} ateVegetables={input?.ateVegetables} bigBelly={input?.bigBelly} setSelectedChecks={updateInput} />
             </CardContainer>
 
             <CardContainer>
