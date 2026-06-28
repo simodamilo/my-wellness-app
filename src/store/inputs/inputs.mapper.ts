@@ -15,7 +15,7 @@ export const InputMapper = (inputResponse: InputPayload): Input => {
         energyLevel: inputResponse.energy_level,
         drankWater: inputResponse.drank_water,
         ateVegetables: inputResponse.ate_vegetables,
-        bigBelly: inputResponse.big_belly,
+        flatBelly: inputResponse.flat_belly,
         bodyFeeling: inputResponse.body_feeling,
         bodyFeelingDiscomfort: inputResponse.body_feeling_discomfort,
         habits: inputResponse.habits,

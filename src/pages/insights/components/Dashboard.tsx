@@ -71,7 +71,7 @@ export const Dashboard = (props: DashboardProps) => {
         const checkDefs = [
             { id: 'check-drankWater', emoji: '💧', label: t('INPUTS.DAILY_CHECKS.WATER'), field: 'drankWater' as const },
             { id: 'check-ateVegetables', emoji: '🥦', label: t('INPUTS.DAILY_CHECKS.VEGETABLES'), field: 'ateVegetables' as const },
-            { id: 'check-bigBelly', emoji: '🎈', label: t('INPUTS.DAILY_CHECKS.BIG_BELLY'), field: 'bigBelly' as const },
+            { id: 'check-flatBelly', emoji: '🧘', label: t('INPUTS.DAILY_CHECKS.FLAT_BELLY'), field: 'flatBelly' as const },
         ];
         const checkTiles = checkDefs.map((def) => ({
             id: def.id,

@@ -57,7 +57,7 @@
             "TITLE": "Daily checks",
             "WATER": "Drank water",
             "VEGETABLES": "Ate vegetables",
-            "BIG_BELLY": "Big belly"
+            "FLAT_BELLY": "Flat belly"
         },
         "SLEEP": {
             "TITLE": "How did you sleep last night?",

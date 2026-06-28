@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 interface DailyChecksProps {
     drankWater?: boolean;
     ateVegetables?: boolean;
-    bigBelly?: boolean;
+    flatBelly?: boolean;
     setSelectedChecks?: (updatedFields: Partial<Input>) => void;
 }
 
@@ -15,7 +15,7 @@ export const DailyChecks = (props: DailyChecksProps) => {
     const checks = [
         { emoji: "💧", label: t("INPUTS.DAILY_CHECKS.WATER"), active: props.drankWater === true, field: "drankWater" as const },
         { emoji: "🥦", label: t("INPUTS.DAILY_CHECKS.VEGETABLES"), active: props.ateVegetables === true, field: "ateVegetables" as const },
-        { emoji: "🎈", label: t("INPUTS.DAILY_CHECKS.BIG_BELLY"), active: props.bigBelly === true, field: "bigBelly" as const },
+        { emoji: "🧘", label: t("INPUTS.DAILY_CHECKS.FLAT_BELLY"), active: props.flatBelly === true, field: "flatBelly" as const },
     ];
 
     return (

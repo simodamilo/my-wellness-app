@@ -15,7 +15,6 @@ import { Spin } from "antd";
 import { PeriodInfo } from "../../components/periodInfo/PeriodInfo";
 import { Sleep } from "../../components/sleep/Sleep";
 import { BodyFeelingDiscomfort } from "../../components/bodyFeeling/BodyFeelingDiscomfort";
-import { Nutrition } from "../../components/nutrition/Nutrition";
 import { useTranslation } from "react-i18next";
 
 export const Homepage = () => {
@@ -122,11 +121,7 @@ export const Homepage = () => {
             </CardContainer>
 
             <CardContainer>
-                <DailyChecks drankWater={input?.drankWater} ateVegetables={input?.ateVegetables} bigBelly={input?.bigBelly} setSelectedChecks={updateInput} />
-            </CardContainer>
-
-            <CardContainer>
-                <Nutrition selectedNutrition={input?.nutritionQuality} nutritionNotes={input?.nutritionNotes} setNutrition={updateInput} />
+                <DailyChecks drankWater={input?.drankWater} ateVegetables={input?.ateVegetables} flatBelly={input?.flatBelly} setSelectedChecks={updateInput} />
             </CardContainer>
 
             <CardContainer>

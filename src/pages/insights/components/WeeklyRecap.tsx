@@ -258,7 +258,7 @@ export const WeeklyRecap = (props: WeeklyRecapProps) => {
             {([
                 { emoji: '💧', label: t('INPUTS.DAILY_CHECKS.WATER'), field: 'drankWater' as const },
                 { emoji: '🥦', label: t('INPUTS.DAILY_CHECKS.VEGETABLES'), field: 'ateVegetables' as const },
-                { emoji: '🎈', label: t('INPUTS.DAILY_CHECKS.BIG_BELLY'), field: 'bigBelly' as const },
+                { emoji: '🧘', label: t('INPUTS.DAILY_CHECKS.FLAT_BELLY'), field: 'flatBelly' as const },
             ]).map((check) => (
                 <div key={check.field} className="grid grid-cols-[2rem_6rem_1fr] items-center gap-2">
                     <span className="text-xl">{check.emoji}</span>
