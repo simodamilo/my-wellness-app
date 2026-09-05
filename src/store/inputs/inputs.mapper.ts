@@ -13,8 +13,6 @@ export const InputMapper = (inputResponse: InputPayload): Input => {
         mood: inputResponse.mood,
         moodNotes: inputResponse.mood_notes,
         energyLevel: inputResponse.energy_level,
-        drankWater: inputResponse.drank_water,
-        ateVegetables: inputResponse.ate_vegetables,
         flatBelly: inputResponse.flat_belly,
         bodyFeeling: inputResponse.body_feeling,
         bodyFeelingDiscomfort: inputResponse.body_feeling_discomfort,

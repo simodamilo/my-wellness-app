@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import type { Input } from '../../../store/inputs/types.ts';
 import { useAppDispatch, type RootState } from '../../../store';
@@ -18,7 +17,6 @@ const getCutoff = (period: PeriodKey): number => {
 };
 
 export const Dashboard = (props: DashboardProps) => {
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     const [period, setPeriod] = useState<PeriodKey>('7');
@@ -45,43 +43,16 @@ export const Dashboard = (props: DashboardProps) => {
             }
         }
 
-        const habitsById = new Map(allHabits.map((h) => [h.id, h]));
-
-        const activeTiles = allHabits
+        return allHabits
             .filter((h) => !h.deletedAt)
             .map((h) => ({
                 id: h.id,
                 emoji: h.emoji,
                 label: h.name,
                 count: counts.get(h.id) ?? 0,
-            }));
-
-        const deletedTiles = Array.from(counts.entries())
-            .filter(([id]) => habitsById.get(id)?.deletedAt)
-            .map(([id, count]) => {
-                const h = habitsById.get(id)!;
-                return {
-                    id,
-                    emoji: h.emoji,
-                    label: `${h.name} (${t('INSIGHTS.REMOVED_LABEL')})`,
-                    count,
-                };
-            });
-
-        const checkDefs = [
-            { id: 'check-drankWater', emoji: '💧', label: t('INPUTS.DAILY_CHECKS.WATER'), field: 'drankWater' as const },
-            { id: 'check-ateVegetables', emoji: '🥦', label: t('INPUTS.DAILY_CHECKS.VEGETABLES'), field: 'ateVegetables' as const },
-            { id: 'check-flatBelly', emoji: '🧘', label: t('INPUTS.DAILY_CHECKS.FLAT_BELLY'), field: 'flatBelly' as const },
-        ];
-        const checkTiles = checkDefs.map((def) => ({
-            id: def.id,
-            emoji: def.emoji,
-            label: def.label,
-            count: windowInputs.filter((i) => i[def.field] === true).length,
-        }));
-
-        return [...[...activeTiles, ...deletedTiles].sort((a, b) => b.count - a.count), ...checkTiles];
-    }, [props.inputs, period, allHabits, t]);
+            }))
+            .sort((a, b) => b.count - a.count);
+    }, [props.inputs, period, allHabits]);
 
     const maxCount = Math.max(1, ...tiles.map((tile) => tile.count));
 

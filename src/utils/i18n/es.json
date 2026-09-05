@@ -54,9 +54,6 @@
             "TITLE": "¿Cuál es tu nivel de energía hoy?"
         },
         "DAILY_CHECKS": {
-            "TITLE": "Controles diarios",
-            "WATER": "Bebí agua",
-            "VEGETABLES": "Comí verduras",
             "FLAT_BELLY": "Barriga plana"
         },
         "SLEEP": {
@@ -79,7 +76,6 @@
     },
     "INSIGHTS": {
         "TITLE": "Resumen",
-        "REMOVED_LABEL": "eliminado",
         "ENERGY_TREND": {
             "TITLE": "Nivel de energía (últimos 30 días)"
         }

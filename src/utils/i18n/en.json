@@ -54,9 +54,6 @@
             "TITLE": "What is your energy level today?"
         },
         "DAILY_CHECKS": {
-            "TITLE": "Daily checks",
-            "WATER": "Drank water",
-            "VEGETABLES": "Ate vegetables",
             "FLAT_BELLY": "Flat belly"
         },
         "SLEEP": {
@@ -79,7 +76,6 @@
     },
     "INSIGHTS": {
         "TITLE": "Recap",
-        "REMOVED_LABEL": "removed",
         "ENERGY_TREND": {
             "TITLE": "Energy level (last 30 days)"
         }
