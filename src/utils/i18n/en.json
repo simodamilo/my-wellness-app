@@ -48,13 +48,12 @@
             "STOMACH": "Stomach",
             "SICK": "Sick",
             "LEGS": "Legs",
-            "TIRED": "Tired"
+            "TIRED": "Tired",
+            "SLEEPY": "Sleepy",
+            "BLOATED": "Bloated"
         },
         "ENERGY_LEVEL": {
             "TITLE": "What is your energy level today?"
-        },
-        "DAILY_CHECKS": {
-            "FLAT_BELLY": "Flat belly"
         },
         "SLEEP": {
             "TITLE": "How did you sleep last night?",

@@ -14,6 +14,7 @@ export const bodyZones = [
     { id: "sick", label: "INPUTS.BODY_FEELING.SICK", emoji: "🤧" },
     { id: "legs", label: "INPUTS.BODY_FEELING.LEGS", emoji: "🦵" },
     { id: "tired", label: "INPUTS.BODY_FEELING.TIRED", emoji: "😴" },
+    { id: "sleepy", label: "INPUTS.BODY_FEELING.SLEEPY", emoji: "🥱" },
 ];
 
 export const nutritions = [

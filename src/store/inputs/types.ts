@@ -10,7 +10,7 @@ export interface Input {
     mood?: number;
     moodNotes?: string;
     energyLevel?: number;
-    flatBelly?: boolean;
+    bloatedBelly?: boolean;
     bodyFeeling?: number;
     bodyFeelingDiscomfort?: string[];
     habits?: string[];

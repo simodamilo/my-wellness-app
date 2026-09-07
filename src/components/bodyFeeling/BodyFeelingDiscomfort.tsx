@@ -6,7 +6,7 @@ import { bodyZones } from "../../utils/constants";
 
 interface BodyFeelingDiscomfortProps {
     selectedDiscomfort?: string[];
-    flatBelly?: boolean;
+    bloatedBelly?: boolean;
     setSelectedDiscomfort?: (updatedFields: Partial<Input>) => void;
 }
 
@@ -19,7 +19,7 @@ export const BodyFeelingDiscomfort = (props: BodyFeelingDiscomfortProps) => {
         setSelected(props.selectedDiscomfort || []);
     }, [props.selectedDiscomfort]);
 
-    const isFlatBellyActive = props.flatBelly === true;
+    const isBloatedBellyActive = props.bloatedBelly === true;
 
     const baseClasses = "flex flex-col items-center justify-center p-3 rounded-2xl backdrop-blur-md border transition-all";
     const activeClasses = "bg-[#c2185b]/30 border-[#c2185b]/40 shadow-md";
@@ -49,11 +49,11 @@ export const BodyFeelingDiscomfort = (props: BodyFeelingDiscomfortProps) => {
 
                 <motion.button
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => props.setSelectedDiscomfort?.({ flatBelly: !isFlatBellyActive })}
-                    className={`${baseClasses} ${isFlatBellyActive ? activeClasses : inactiveClasses}`}
+                    onClick={() => props.setSelectedDiscomfort?.({ bloatedBelly: !isBloatedBellyActive })}
+                    className={`${baseClasses} ${isBloatedBellyActive ? activeClasses : inactiveClasses}`}
                 >
-                    <span className="text-3xl">🧘</span>
-                    <span className="text-sm text-gray-700 mt-1">{t("INPUTS.DAILY_CHECKS.FLAT_BELLY")}</span>
+                    <span className="text-3xl">🎈</span>
+                    <span className="text-sm text-gray-700 mt-1">{t("INPUTS.BODY_FEELING.BLOATED")}</span>
                 </motion.button>
             </div>
         </div>

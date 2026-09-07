@@ -112,7 +112,7 @@ export const Homepage = () => {
 
             <CardContainer>
                 <BodyFeeling selectedBodyFeeling={input?.bodyFeeling} setSelectedBodyFeeling={updateInput} />
-                <BodyFeelingDiscomfort selectedDiscomfort={input?.bodyFeelingDiscomfort} flatBelly={input?.flatBelly} setSelectedDiscomfort={updateInput} />
+                <BodyFeelingDiscomfort selectedDiscomfort={input?.bodyFeelingDiscomfort} bloatedBelly={input?.bloatedBelly} setSelectedDiscomfort={updateInput} />
             </CardContainer>
 
             <CardContainer>

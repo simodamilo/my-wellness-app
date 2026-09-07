@@ -48,13 +48,12 @@
             "STOMACH": "Estómago",
             "SICK": "Enfermo",
             "LEGS": "Piernas",
-            "TIRED": "Cansado"
+            "TIRED": "Cansado",
+            "SLEEPY": "Somnoliento",
+            "BLOATED": "Hinchada"
         },
         "ENERGY_LEVEL": {
             "TITLE": "¿Cuál es tu nivel de energía hoy?"
-        },
-        "DAILY_CHECKS": {
-            "FLAT_BELLY": "Barriga plana"
         },
         "SLEEP": {
             "TITLE": "¿Cómo dormiste anoche?",
